@@ -5,7 +5,7 @@
 			 used for the lab samples of Game Graphics Programming 
              course.
 
-  Functions: InitWindow, InitDevice, CleanupDevice, Render
+  Functions: PrintHi
 
   © 2022 Kyung Hee University
 ===================================================================+*/
