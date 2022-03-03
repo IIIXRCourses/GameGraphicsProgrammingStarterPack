@@ -38,5 +38,5 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 {
   library::PrintHi();
 
-  return static_cast<INT>(msg.wParam);
+  return 0;
 }
