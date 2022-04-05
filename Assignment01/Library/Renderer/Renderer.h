@@ -70,8 +70,6 @@ namespace library
         D3D_DRIVER_TYPE GetDriverType() const;
 
     private:
-        HRESULT compileShaderFromFile(_In_ PCWSTR pszFileName, _In_ PCSTR pszEntryPoint, _In_ PCSTR pszShaderModel, _Outptr_ ID3DBlob** ppBlobOut);
-
         D3D_DRIVER_TYPE m_driverType;
         D3D_FEATURE_LEVEL m_featureLevel;
         ComPtr<ID3D11Device> m_d3dDevice;
