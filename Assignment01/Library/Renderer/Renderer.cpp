@@ -58,7 +58,7 @@ namespace library
     /*M+M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M
       Method:   Renderer::AddVertexShader
 
-      Summary:  Add the vertex shader into the renderer and initialize it
+      Summary:  Add the vertex shader into the renderer
 
       Args:     PCWSTR pszVertexShaderName
                   Key of the vertex shader
@@ -77,7 +77,7 @@ namespace library
     /*M+M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M
       Method:   Renderer::AddPixelShader
 
-      Summary:  Add the pixel shader into the renderer and initialize it
+      Summary:  Add the pixel shader into the renderer
 
       Args:     PCWSTR pszPixelShaderName
                   Key of the pixel shader
