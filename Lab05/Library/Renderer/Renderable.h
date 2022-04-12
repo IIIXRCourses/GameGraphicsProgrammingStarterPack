@@ -55,7 +55,7 @@ namespace library
     class Renderable
     {
     public:
-        Renderable();
+        Renderable(_In_ const std::filesystem::path& textureFilePath);
         Renderable(const Renderable& other) = delete;
         Renderable(Renderable&& other) = delete;
         Renderable& operator=(const Renderable& other) = delete;
