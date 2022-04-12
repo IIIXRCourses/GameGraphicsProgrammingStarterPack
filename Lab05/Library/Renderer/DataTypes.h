@@ -43,6 +43,4 @@ namespace library
     {
         XMMATRIX World;
     };
-    }
-
 }
