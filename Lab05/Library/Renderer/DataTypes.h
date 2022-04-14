@@ -11,7 +11,7 @@ namespace library
     struct SimpleVertex
     {
         XMFLOAT3 Position;
-        XMFLOAT2 Material;
+        XMFLOAT2 TexCoord;
     };
 
     /*S+S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S

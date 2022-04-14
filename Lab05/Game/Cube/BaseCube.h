@@ -59,35 +59,35 @@ protected:
 
     static constexpr const library::SimpleVertex VERTICES[] =
     {
-        { .Position = XMFLOAT3(-1.0f, 1.0f, -1.0f), .Material = XMFLOAT2(1.0f, 0.0f) },
-        { .Position = XMFLOAT3(1.0f, 1.0f, -1.0f), .Material = XMFLOAT2(0.0f, 0.0f) },
-        { .Position = XMFLOAT3(1.0f, 1.0f, 1.0f), .Material = XMFLOAT2(0.0f, 1.0f) },
-        { .Position = XMFLOAT3(-1.0f, 1.0f, 1.0f), .Material = XMFLOAT2(1.0f, 1.0f) },
+        { .Position = XMFLOAT3(-1.0f, 1.0f, -1.0f), .TexCoord = XMFLOAT2(1.0f, 0.0f) },
+        { .Position = XMFLOAT3(1.0f, 1.0f, -1.0f), .TexCoord = XMFLOAT2(0.0f, 0.0f) },
+        { .Position = XMFLOAT3(1.0f, 1.0f, 1.0f), .TexCoord = XMFLOAT2(0.0f, 1.0f) },
+        { .Position = XMFLOAT3(-1.0f, 1.0f, 1.0f), .TexCoord = XMFLOAT2(1.0f, 1.0f) },
 
-        { .Position = XMFLOAT3(-1.0f, -1.0f, -1.0f), .Material = XMFLOAT2(0.0f, 0.0f) },
-        { .Position = XMFLOAT3(1.0f, -1.0f, -1.0f), .Material = XMFLOAT2(1.0f, 0.0f) },
-        { .Position = XMFLOAT3(1.0f, -1.0f, 1.0f), .Material = XMFLOAT2(1.0f, 1.0f) },
-        { .Position = XMFLOAT3(-1.0f, -1.0f, 1.0f), .Material = XMFLOAT2(0.0f, 1.0f) },
+        { .Position = XMFLOAT3(-1.0f, -1.0f, -1.0f), .TexCoord = XMFLOAT2(0.0f, 0.0f) },
+        { .Position = XMFLOAT3(1.0f, -1.0f, -1.0f), .TexCoord = XMFLOAT2(1.0f, 0.0f) },
+        { .Position = XMFLOAT3(1.0f, -1.0f, 1.0f), .TexCoord = XMFLOAT2(1.0f, 1.0f) },
+        { .Position = XMFLOAT3(-1.0f, -1.0f, 1.0f), .TexCoord = XMFLOAT2(0.0f, 1.0f) },
 
-        { .Position = XMFLOAT3(-1.0f, -1.0f, 1.0f), .Material = XMFLOAT2(0.0f, 1.0f) },
-        { .Position = XMFLOAT3(-1.0f, -1.0f, -1.0f), .Material = XMFLOAT2(1.0f, 1.0f) },
-        { .Position = XMFLOAT3(-1.0f, 1.0f, -1.0f), .Material = XMFLOAT2(1.0f, 0.0f) },
-        { .Position = XMFLOAT3(-1.0f, 1.0f, 1.0f), .Material = XMFLOAT2(0.0f, 0.0f) },
+        { .Position = XMFLOAT3(-1.0f, -1.0f, 1.0f), .TexCoord = XMFLOAT2(0.0f, 1.0f) },
+        { .Position = XMFLOAT3(-1.0f, -1.0f, -1.0f), .TexCoord = XMFLOAT2(1.0f, 1.0f) },
+        { .Position = XMFLOAT3(-1.0f, 1.0f, -1.0f), .TexCoord = XMFLOAT2(1.0f, 0.0f) },
+        { .Position = XMFLOAT3(-1.0f, 1.0f, 1.0f), .TexCoord = XMFLOAT2(0.0f, 0.0f) },
 
-        { .Position = XMFLOAT3(1.0f, -1.0f, 1.0f), .Material = XMFLOAT2(1.0f, 1.0f) },
-        { .Position = XMFLOAT3(1.0f, -1.0f, -1.0f), .Material = XMFLOAT2(0.0f, 1.0f) },
-        { .Position = XMFLOAT3(1.0f, 1.0f, -1.0f), .Material = XMFLOAT2(0.0f, 0.0f) },
-        { .Position = XMFLOAT3(1.0f, 1.0f, 1.0f), .Material = XMFLOAT2(1.0f, 0.0f) },
+        { .Position = XMFLOAT3(1.0f, -1.0f, 1.0f), .TexCoord = XMFLOAT2(1.0f, 1.0f) },
+        { .Position = XMFLOAT3(1.0f, -1.0f, -1.0f), .TexCoord = XMFLOAT2(0.0f, 1.0f) },
+        { .Position = XMFLOAT3(1.0f, 1.0f, -1.0f), .TexCoord = XMFLOAT2(0.0f, 0.0f) },
+        { .Position = XMFLOAT3(1.0f, 1.0f, 1.0f), .TexCoord = XMFLOAT2(1.0f, 0.0f) },
 
-        { .Position = XMFLOAT3(-1.0f, -1.0f, -1.0f), .Material = XMFLOAT2(0.0f, 1.0f) },
-        { .Position = XMFLOAT3(1.0f, -1.0f, -1.0f), .Material = XMFLOAT2(1.0f, 1.0f) },
-        { .Position = XMFLOAT3(1.0f, 1.0f, -1.0f), .Material = XMFLOAT2(1.0f, 0.0f) },
-        { .Position = XMFLOAT3(-1.0f, 1.0f, -1.0f), .Material = XMFLOAT2(0.0f, 0.0f) },
+        { .Position = XMFLOAT3(-1.0f, -1.0f, -1.0f), .TexCoord = XMFLOAT2(0.0f, 1.0f) },
+        { .Position = XMFLOAT3(1.0f, -1.0f, -1.0f), .TexCoord = XMFLOAT2(1.0f, 1.0f) },
+        { .Position = XMFLOAT3(1.0f, 1.0f, -1.0f), .TexCoord = XMFLOAT2(1.0f, 0.0f) },
+        { .Position = XMFLOAT3(-1.0f, 1.0f, -1.0f), .TexCoord = XMFLOAT2(0.0f, 0.0f) },
 
-        { .Position = XMFLOAT3(-1.0f, -1.0f, 1.0f), .Material = XMFLOAT2(1.0f, 1.0f) },
-        { .Position = XMFLOAT3(1.0f, -1.0f, 1.0f), .Material = XMFLOAT2(0.0f, 1.0f) },
-        { .Position = XMFLOAT3(1.0f, 1.0f, 1.0f), .Material = XMFLOAT2(0.0f, 0.0f) },
-        { .Position = XMFLOAT3(-1.0f, 1.0f, 1.0f), .Material = XMFLOAT2(1.0f, 0.0f) },
+        { .Position = XMFLOAT3(-1.0f, -1.0f, 1.0f), .TexCoord = XMFLOAT2(1.0f, 1.0f) },
+        { .Position = XMFLOAT3(1.0f, -1.0f, 1.0f), .TexCoord = XMFLOAT2(0.0f, 1.0f) },
+        { .Position = XMFLOAT3(1.0f, 1.0f, 1.0f), .TexCoord = XMFLOAT2(0.0f, 0.0f) },
+        { .Position = XMFLOAT3(-1.0f, 1.0f, 1.0f), .TexCoord = XMFLOAT2(1.0f, 0.0f) },
     };
     static constexpr const UINT NUM_VERTICES = 24u;
     static constexpr const WORD INDICES[] =
