@@ -56,6 +56,7 @@ namespace library
     {
     public:
         Renderable(_In_ const std::filesystem::path& textureFilePath);
+        Renderable(_In_ const XMFLOAT4& outputColor);
         Renderable(const Renderable& other) = delete;
         Renderable(Renderable&& other) = delete;
         Renderable& operator=(const Renderable& other) = delete;
@@ -77,6 +78,8 @@ namespace library
         const XMMATRIX& GetWorldMatrix() const;
         ComPtr<ID3D11ShaderResourceView>& GetTextureResourceView();
         ComPtr<ID3D11SamplerState>& GetSamplerState();
+        const XMFLOAT4& GetOutputColor() const;
+        BOOL HasTexture() const;
 
         virtual UINT GetNumVertices() const = 0;
         virtual UINT GetNumIndices() const = 0;
