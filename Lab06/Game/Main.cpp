@@ -80,7 +80,7 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     }
 
     XMFLOAT4 color;
-    XMStoreFloat4(&color, Colors::AntiqueWhite);
+    XMStoreFloat4(&color, Colors::White);
     std::shared_ptr<library::PointLight> pointLight = std::make_shared<library::PointLight>(
         XMFLOAT4(-5.77f, 5.77f, -5.77f, 1.0f), 
         color
@@ -105,7 +105,7 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
         return 0;
     }
 
-    XMStoreFloat4(&color, Colors::IndianRed);
+    XMStoreFloat4(&color, Colors::Red);
     std::shared_ptr<RotatingPointLight> rotatingPointLight = std::make_shared<RotatingPointLight>(
         XMFLOAT4(0.0f, 0.0f, -5.0f, 1.0f),
         color
