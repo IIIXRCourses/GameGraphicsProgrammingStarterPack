@@ -7,8 +7,22 @@ namespace library
 
       Summary:  Constructor
 
+      Args:     const XMFLOAT4& outputColor
+                  Default color of the renderable
+    M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M-M*/
+    /*--------------------------------------------------------------------
+      TODO: InstancedRenderable::InstancedRenderable definition (remove the comment)
+    --------------------------------------------------------------------*/
+
+    /*M+M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M
+      Method:   InstancedRenderable::InstancedRenderable
+
+      Summary:  Constructor
+
       Args:     std::vector<InstanceData>&& aInstanceData
                   An instance data
+                const XMFLOAT4& outputColor
+                  Default color of the renderable
 
       Modifies: [m_instanceBuffer, m_aInstanceData].
     M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M-M*/

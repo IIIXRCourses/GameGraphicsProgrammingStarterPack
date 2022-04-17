@@ -5,7 +5,7 @@
 namespace library
 {
     /*S+S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S
-      Struct:   SimpleVertex
+      Struct:    SimpleVertex
 
       Summary:  Simple vertex structure containing a single field of the
                 type XMFLOAT3
@@ -18,17 +18,6 @@ namespace library
     };
 
     /*S+S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S
-      Struct:   InstanceData
-
-      Summary:  Instance data containing a per instance transformation 
-                matrix
-    S---S---S---S---S---S---S---S---S---S---S---S---S---S---S---S---S-S*/
-    struct InstanceData
-    {
-        XMMATRIX Transformation;
-    };
-
-    /*S+S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S
       Struct:   CBChangeOnCameraMovement
 
       Summary:  Constant buffer containing view matrix
@@ -36,7 +25,7 @@ namespace library
     struct CBChangeOnCameraMovement
     {
         XMMATRIX View;
-        XMFLOAT4 CameraPosition;    // This is for shading. You may comment this out until then.
+        XMFLOAT4 CameraPosition;
     };
 
     /*S+S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S
@@ -70,4 +59,3 @@ namespace library
         XMFLOAT4 LightPositions[NUM_LIGHTS];
         XMFLOAT4 LightColors[NUM_LIGHTS];
     };
-}

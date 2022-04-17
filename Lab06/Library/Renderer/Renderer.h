@@ -103,7 +103,7 @@ namespace library
         ComPtr<ID3D11Texture2D> m_depthStencil;
         ComPtr<ID3D11DepthStencilView> m_depthStencilView;
         ComPtr<ID3D11Buffer> m_cbChangeOnResize;
-        ComPtr<ID3D11Buffer> m_cbLights;
+        ComPtr<ID3D11Buffer> m_cbChangeOnResize;
         PCWSTR m_pszMainSceneName;
         Camera m_camera;
         XMMATRIX m_projection;

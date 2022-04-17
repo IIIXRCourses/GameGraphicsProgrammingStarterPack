@@ -39,8 +39,8 @@ namespace library
     class InstancedRenderable : public Renderable
     {
     public:
-        InstancedRenderable() = default;
-        InstancedRenderable(_In_ std::vector<InstanceData>&& aInstanceData);
+        InstancedRenderable(_In_ const XMFLOAT4& outputColor);
+        InstancedRenderable(_In_ std::vector<InstanceData>&& aInstanceData, _In_ const XMFLOAT4& outputColor);
         InstancedRenderable(const InstancedRenderable& other) = delete;
         InstancedRenderable(InstancedRenderable&& other) = delete;
         InstancedRenderable& operator=(const InstancedRenderable& other) = delete;

@@ -23,9 +23,7 @@ namespace library
 
       Summary:  Base class for renderable 3d cube object
 
-      Methods:  GetMeshColor
-                  Returns the color of the voxel
-                Voxel
+      Methods:  Voxel
                   Constructor.
                 ~Voxel
                   Destructor.
@@ -33,9 +31,8 @@ namespace library
     class Voxel : public InstancedRenderable
     {
     public:
-        Voxel() = default;
-        Voxel(_In_ XMFLOAT4& meshColor);
-        Voxel(_In_ std::vector<InstanceData>&& aInstanceData, _In_ XMFLOAT4& meshColor);
+        Voxel(_In_ const XMFLOAT4& outputColor);
+        Voxel(_In_ std::vector<InstanceData>&& aInstanceData, _In_ const XMFLOAT4& outputColor);
         Voxel(const Voxel& other) = delete;
         Voxel(Voxel&& other) = delete;
         Voxel& operator=(const Voxel& other) = delete;
@@ -47,8 +44,6 @@ namespace library
 
         UINT GetNumVertices() const override;
         UINT GetNumIndices() const override;
-
-        const XMFLOAT4& GetMeshColor() const;
 
     protected:
         const SimpleVertex* getVertices() const override;
@@ -108,8 +103,5 @@ namespace library
             23,20,22
         };
         static constexpr const UINT NUM_INDICES = 36u;
-
-    protected:
-        XMFLOAT4 m_meshColor;
     };
 }

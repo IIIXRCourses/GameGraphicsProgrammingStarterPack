@@ -1,8 +1,10 @@
 //--------------------------------------------------------------------------------------
-// File: VoxelShaders.fx
+// File: PhongShaders.fx
 //
 // Copyright (c) Kyung Hee University.
 //--------------------------------------------------------------------------------------
+
+#define NUM_LIGHTS (2)
 
 //--------------------------------------------------------------------------------------
 // Global Variables
@@ -35,8 +37,7 @@ C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C-C*/
 /*C+C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C
   Cbuffer:  cbChangesEveryFrame
 
-  Summary:  Constant buffer used for world transformation, and the 
-            color of the voxel
+  Summary:  Constant buffer used for world transformation
 C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C-C*/
 /*--------------------------------------------------------------------
   TODO: cbChangesEveryFrame definition (remove the comment)
@@ -53,35 +54,52 @@ C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C-C*/
 
 //--------------------------------------------------------------------------------------
 /*C+C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C
-  Struct:   VS_INPUT
+  Struct:   VS_PHONG_INPUT
 
-  Summary:  Used as the input to the vertex shader, 
-            instance data included
+  Summary:  Used as the input to the vertex shader
 C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C-C*/
 /*--------------------------------------------------------------------
-  TODO: VS_INPUT definition (remove the comment)
+  TODO: VS_PHONG_INPUT definition (remove the comment)
 --------------------------------------------------------------------*/
 
 /*C+C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C
-  Struct:   PS_INPUT
+  Struct:   PS_PHONG_INPUT
 
   Summary:  Used as the input to the pixel shader, output of the 
             vertex shader
 C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C-C*/
 /*--------------------------------------------------------------------
-  TODO: PS_INPUT definition (remove the comment)
+  TODO: PS_PHONG_INPUT definition (remove the comment)
+--------------------------------------------------------------------*/
+
+/*C+C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C
+  Struct:   PS_LIGHT_CUBE_INPUT
+
+  Summary:  Used as the input to the pixel shader, output of the 
+            vertex shader
+C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C-C*/
+/*--------------------------------------------------------------------
+  TODO: PS_LIGHT_CUBE_INPUT definition (remove the comment)
 --------------------------------------------------------------------*/
 
 //--------------------------------------------------------------------------------------
 // Vertex Shader
 //--------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------
-  TODO: Vertex Shader function VS definition (remove the comment)
+  TODO: Vertex Shader function VSPhong definition (remove the comment)
+--------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------
+  TODO: Vertex Shader function VSLightCube definition (remove the comment)
 --------------------------------------------------------------------*/
 
 //--------------------------------------------------------------------------------------
 // Pixel Shader
 //--------------------------------------------------------------------------------------
 /*--------------------------------------------------------------------
-  TODO: Pixel Shader function PS definition (remove the comment)
+  TODO: Pixel Shader function PSPhong definition (remove the comment)
+--------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------
+  TODO: Pixel Shader function PSLightCube definition (remove the comment)
 --------------------------------------------------------------------*/

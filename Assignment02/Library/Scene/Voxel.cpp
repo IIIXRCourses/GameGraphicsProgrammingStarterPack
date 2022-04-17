@@ -9,10 +9,8 @@ namespace library
 
       Summary:  Constructor
 
-      Args:     XMFLOAT4& meshColor
+      Args:     const XMFLOAT4& outputColor
                   Color of the voxel
-      
-      Modifies: [m_meshColor].
     M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M-M*/
     /*--------------------------------------------------------------------
       TODO: Voxel::Voxel definition (remove the comment)
@@ -25,10 +23,8 @@ namespace library
 
       Args:     std::vector<InstanceData>&& aInstanceData
                   Instance data
-                XMFLOAT4& meshColor
+                const XMFLOAT4& outputColor
                   Color of the voxel
-      
-      Modifies: [m_meshColor].
     M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M-M*/
     /*--------------------------------------------------------------------
       TODO: Voxel::Voxel definition (remove the comment)
@@ -61,18 +57,6 @@ namespace library
     M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M-M*/
     /*--------------------------------------------------------------------
       TODO: Voxel::Update definition (remove the comment)
-    --------------------------------------------------------------------*/
-
-    /*M+M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M
-      Method:   Voxel::GetMeshColor
-
-      Summary:  Returns the color of the voxel
-      
-      Returns:  const XMFLOAT4&
-                  Color of the voxel
-    M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M-M*/
-    /*--------------------------------------------------------------------
-      TODO: Voxel::GetMeshColor definition (remove the comment)
     --------------------------------------------------------------------*/
 
     /*M+M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M
