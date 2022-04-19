@@ -98,9 +98,9 @@ namespace library
         Camera m_camera;
         XMMATRIX m_projection;
 
-        std::unordered_map<PCWSTR, std::shared_ptr<Renderable>> m_renderables;
+        std::unordered_map<std::wstring, std::shared_ptr<Renderable>> m_renderables;
         std::shared_ptr<PointLight> m_aPointLights[NUM_LIGHTS];
-        std::unordered_map<PCWSTR, std::shared_ptr<VertexShader>> m_vertexShaders;
-        std::unordered_map<PCWSTR, std::shared_ptr<PixelShader>> m_pixelShaders;
+        std::unordered_map<std::wstring, std::shared_ptr<VertexShader>> m_vertexShaders;
+        std::unordered_map<std::wstring, std::shared_ptr<PixelShader>> m_pixelShaders;
     };
 }
