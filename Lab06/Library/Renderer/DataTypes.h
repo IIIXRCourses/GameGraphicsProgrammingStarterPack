@@ -59,3 +59,4 @@ namespace library
         XMFLOAT4 LightPositions[NUM_LIGHTS];
         XMFLOAT4 LightColors[NUM_LIGHTS];
     };
+}
