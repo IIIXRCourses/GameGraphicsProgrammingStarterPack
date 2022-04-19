@@ -32,39 +32,23 @@ namespace library
       Methods:  Initialize
                   Creates Direct3D device and swap chain
                 AddRenderable
-                  Add a renderable object and initialize the object
+                  Add a renderable object
+                AddPointLight
+                  Add a point light object
                 AddVertexShader
-                  Add the vertex shader into the renderer
+                  Add a vertex shader
                 AddPixelShader
-                  Add the pixel shader into the renderer
-                GetVertexLayout
-                  Returns the vertex input layout
-                GetVertexBuffer
-                  Returns the vertex buffer
-                GetIndexBuffer
-                  Returns the index buffer
-                GetConstantBuffer
-                  Returns the constant buffer
-                GetWorldMatrix
-                  Returns the world matrix
-                GetTextureResourceView
-                  Returns the texture resource view
-                GetSamplerState
-                  Returns the sampler state
-                GetOutputColor
-                  Returns the output color
-                HasTexture
-                  Returns whether texture
+                  Add a pixel shader
                 HandleInput
-                  Handles the keyboard / mouse input
+                  Handles input
                 Update
                   Update the renderables each frame
                 Render
                   Renders the frame
                 SetVertexShaderOfRenderable
-                  Sets the vertex shader for a renderable
+                  Sets vertex shader of a renderable
                 SetPixelShaderOfRenderable
-                  Sets the pixel shader for a renderable
+                  Sets pixel shader of a renderable
                 GetDriverType
                   Returns the Direct3D driver type
                 Renderer
@@ -72,62 +56,51 @@ namespace library
                 ~Renderer
                   Destructor.
     C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C-C*/
-    class Renderable
+    class Renderer final
     {
     public:
-        Renderable(_In_ const std::filesystem::path& textureFilePath);
-        Renderable(_In_ const XMFLOAT4& outputColor);
-        Renderable(const Renderable& other) = delete;
-        Renderable(Renderable&& other) = delete;
-        Renderable& operator=(const Renderable& other) = delete;
-        Renderable& operator=(Renderable&& other) = delete;
-        virtual ~Renderable() = default;
+        Renderer();
+        Renderer(const Renderer& other) = delete;
+        Renderer(Renderer&& other) = delete;
+        Renderer& operator=(const Renderer& other) = delete;
+        Renderer& operator=(Renderer&& other) = delete;
+        ~Renderer() = default;
 
-        virtual HRESULT Initialize(_In_ ID3D11Device* pDevice, _In_ ID3D11DeviceContext* pImmediateContext) = 0;
-        virtual void Update(_In_ FLOAT deltaTime) = 0;
+        HRESULT Initialize(_In_ HWND hWnd);
+        HRESULT AddRenderable(_In_ PCWSTR pszRenderableName, _In_ const std::shared_ptr<Renderable>& renderable);
+        HRESULT AddPointLight(_In_ size_t index, _In_ const std::shared_ptr<PointLight>& pPointLight);
+        HRESULT AddVertexShader(_In_ PCWSTR pszVertexShaderName, _In_ const std::shared_ptr<VertexShader>& vertexShader);
+        HRESULT AddPixelShader(_In_ PCWSTR pszPixelShaderName, _In_ const std::shared_ptr<PixelShader>& pixelShader);
 
-        void SetVertexShader(_In_ const std::shared_ptr<VertexShader>& vertexShader);
-        void SetPixelShader(_In_ const std::shared_ptr<PixelShader>& pixelShader);
+        void HandleInput(_In_ const DirectionsInput& directions, _In_ const MouseRelativeMovement& mouseRelativeMovement, _In_ FLOAT deltaTime);
+        void Update(_In_ FLOAT deltaTime);
+        void Render();
 
-        ComPtr<ID3D11VertexShader>& GetVertexShader();
-        ComPtr<ID3D11PixelShader>& GetPixelShader();
-        ComPtr<ID3D11InputLayout>& GetVertexLayout();
-        ComPtr<ID3D11Buffer>& GetVertexBuffer();
-        ComPtr<ID3D11Buffer>& GetIndexBuffer();
-        ComPtr<ID3D11Buffer>& GetConstantBuffer();
-        const XMMATRIX& GetWorldMatrix() const;
-        ComPtr<ID3D11ShaderResourceView>& GetTextureResourceView();
-        ComPtr<ID3D11SamplerState>& GetSamplerState();
-        const XMFLOAT4& GetOutputColor() const;
-        BOOL HasTexture() const;
+        HRESULT SetVertexShaderOfRenderable(_In_ PCWSTR pszRenderableName, _In_ PCWSTR pszVertexShaderName);
+        HRESULT SetPixelShaderOfRenderable(_In_ PCWSTR pszRenderableName, _In_ PCWSTR pszPixelShaderName);
 
-        void RotateX(_In_ FLOAT angle);
-        void RotateY(_In_ FLOAT angle);
-        void RotateZ(_In_ FLOAT angle);
-        void RotateRollPitchYaw(_In_ FLOAT roll, _In_ FLOAT pitch, _In_ FLOAT yaw);
-        void Scale(_In_ FLOAT scaleX, _In_ FLOAT scaleY, _In_ FLOAT scaleZ);
-        void Translate(_In_ const XMVECTOR& offset);
+        D3D_DRIVER_TYPE GetDriverType() const;
 
-        virtual UINT GetNumVertices() const = 0;
-        virtual UINT GetNumIndices() const = 0;
-    protected:
-        const virtual SimpleVertex* getVertices() const = 0;
-        virtual const WORD* getIndices() const = 0;
-        HRESULT initialize(
-            _In_ ID3D11Device* pDevice,
-            _In_ ID3D11DeviceContext* pImmediateContext
-            );
+    private:
+        D3D_DRIVER_TYPE m_driverType;
+        D3D_FEATURE_LEVEL m_featureLevel;
+        ComPtr<ID3D11Device> m_d3dDevice;
+        ComPtr<ID3D11Device1> m_d3dDevice1;
+        ComPtr<ID3D11DeviceContext> m_immediateContext;
+        ComPtr<ID3D11DeviceContext1> m_immediateContext1;
+        ComPtr<IDXGISwapChain> m_swapChain;
+        ComPtr<IDXGISwapChain1> m_swapChain1;
+        ComPtr<ID3D11RenderTargetView> m_renderTargetView;
+        ComPtr<ID3D11Texture2D> m_depthStencil;
+        ComPtr<ID3D11DepthStencilView> m_depthStencilView;
+        ComPtr<ID3D11Buffer> m_cbChangeOnResize;
+        ComPtr<ID3D11Buffer> m_cbLights;
+        Camera m_camera;
+        XMMATRIX m_projection;
 
-        ComPtr<ID3D11Buffer> m_vertexBuffer;
-        ComPtr<ID3D11Buffer> m_indexBuffer;
-        ComPtr<ID3D11Buffer> m_constantBuffer;
-        ComPtr<ID3D11ShaderResourceView> m_textureRV;
-        ComPtr<ID3D11SamplerState> m_samplerLinear;
-        std::shared_ptr<VertexShader> m_vertexShader;
-        std::shared_ptr<PixelShader> m_pixelShader;
-        std::filesystem::path m_textureFilePath;
-        XMFLOAT4 m_outputColor;
-        BOOL m_bHasTextures;
-        XMMATRIX m_world;
+        std::unordered_map<PCWSTR, std::shared_ptr<Renderable>> m_renderables;
+        std::shared_ptr<PointLight> m_aPointLights[NUM_LIGHTS];
+        std::unordered_map<PCWSTR, std::shared_ptr<VertexShader>> m_vertexShaders;
+        std::unordered_map<PCWSTR, std::shared_ptr<PixelShader>> m_pixelShaders;
     };
 }
