@@ -50,6 +50,8 @@ constexpr LPCWSTR PSZ_COURSE_TITLE = L"Game Graphics Programming";
 using namespace Microsoft::WRL;
 using namespace DirectX;
 
+#define ASSIMP_LOAD_FLAGS (aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_JoinIdenticalVertices | aiProcess_ConvertToLeftHanded)
+
 namespace library
 {
     /*S+S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S+++S
