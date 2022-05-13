@@ -51,45 +51,45 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    std::unique_ptr<Game> game = std::make_unique<Game>(L"Game Graphics Programming Lab 8: Skeletal Animation");
+    std::unique_ptr<library::Game> game = std::make_unique<library::Game>(L"Game Graphics Programming Lab 8: Skeletal Animation");
 
-    std::shared_ptr<SkinningVertexShader> phongSkinningVertexShader = std::make_shared<SkinningVertexShader>(L"Shaders/SkinningShaders.fxh", "VSPhong", "vs_5_0");
+    std::shared_ptr<library::SkinningVertexShader> phongSkinningVertexShader = std::make_shared<library::SkinningVertexShader>(L"Shaders/SkinningShaders.fxh", "VSPhong", "vs_5_0");
     if (FAILED(game->GetRenderer()->AddVertexShader(L"PhongSkinningShader", phongSkinningVertexShader)))
     {
         return 0;
     }
 
-    std::shared_ptr<VertexShader> phongVertexShader = std::make_shared<VertexShader>(L"Shaders/Shaders.fxh", "VSPhong", "vs_5_0");
+    std::shared_ptr<library::VertexShader> phongVertexShader = std::make_shared<library::VertexShader>(L"Shaders/Shaders.fxh", "VSPhong", "vs_5_0");
     if (FAILED(game->GetRenderer()->AddVertexShader(L"PhongShader", phongVertexShader)))
     {
         return 0;
     }
  
-    std::shared_ptr<VertexShader> voxelVertexShader = std::make_shared<VertexShader>(L"Shaders/Shaders.fxh", "VSVoxel", "vs_5_0");
+    std::shared_ptr<library::VertexShader> voxelVertexShader = std::make_shared<library::VertexShader>(L"Shaders/Shaders.fxh", "VSVoxel", "vs_5_0");
     if (FAILED(game->GetRenderer()->AddVertexShader(L"VoxelShader", voxelVertexShader)))
     {
         return 0;
     }
 
-    std::shared_ptr<PixelShader> phongSkinningPixelShader = std::make_shared<PixelShader>(L"Shaders/SkinningShaders.fxh", "PSPhong", "ps_5_0");
+    std::shared_ptr<library::PixelShader> phongSkinningPixelShader = std::make_shared<library::PixelShader>(L"Shaders/SkinningShaders.fxh", "PSPhong", "ps_5_0");
     if (FAILED(game->GetRenderer()->AddPixelShader(L"PhongSkinningShader", phongSkinningPixelShader)))
     {
         return 0;
     }
 
-    std::shared_ptr<PixelShader> phongPixelShader = std::make_shared<PixelShader>(L"Shaders/Shaders.fxh", "PSPhong", "ps_5_0");
+    std::shared_ptr<library::PixelShader> phongPixelShader = std::make_shared<library::PixelShader>(L"Shaders/Shaders.fxh", "PSPhong", "ps_5_0");
     if (FAILED(game->GetRenderer()->AddPixelShader(L"PhongShader", phongPixelShader)))
     {
         return 0;
     }
 
-    std::shared_ptr<PixelShader> voxelPixelShader = std::make_shared<PixelShader>(L"Shaders/Shaders.fxh", "PSVoxel", "ps_5_0");
+    std::shared_ptr<library::PixelShader> voxelPixelShader = std::make_shared<library::PixelShader>(L"Shaders/Shaders.fxh", "PSVoxel", "ps_5_0");
     if (FAILED(game->GetRenderer()->AddPixelShader(L"VoxelShader", voxelPixelShader)))
     {
         return 0;
     }
 
-    std::shared_ptr<Model> warrior = std::make_shared<Model>(L"Content/BobLampClean/boblampclean.md5mesh");
+    std::shared_ptr<library::Model> warrior = std::make_shared<library::Model>(L"Content/BobLampClean/boblampclean.md5mesh");
     warrior->RotateX(XM_PIDIV2);
     warrior->Scale(0.1f, 0.1f, 0.1f);
 
@@ -111,7 +111,7 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     XMFLOAT4 color;
     XMStoreFloat4(&color, Colors::White);
 
-    std::shared_ptr<PointLight> directionalLight = std::make_shared<PointLight>(
+    std::shared_ptr<library::PointLight> directionalLight = std::make_shared<library::PointLight>(
         XMFLOAT4(-5.77f, 5.77f, -5.77f, 1.0f),
         color
         );
@@ -121,7 +121,7 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     }
 
     XMStoreFloat4(&color, Colors::Red);
-    std::shared_ptr<RotatingPointLight> rotatingDirectionalLight = std::make_shared<RotatingPointLight>(
+    std::shared_ptr<library::RotatingPointLight> rotatingDirectionalLight = std::make_shared<library::RotatingPointLight>(
         XMFLOAT4(0.0f, 0.0f, -5.0f, 1.0f),
         color
         );

@@ -397,7 +397,7 @@ namespace library
         for (UINT i = 0u; i < m_aMeshes.size(); ++i)
         {
             const aiMesh* pMesh = pScene->mMeshes[i];
-            initSingleMesh(pMesh);
+            initSingleMesh(i, pMesh);
         }
     }
 
@@ -458,8 +458,6 @@ namespace library
             const aiMaterial* pMaterial = pScene->mMaterials[i];
 
             loadTextures(pDevice, pImmediateContext, parentDirectory, pMaterial, i);
-
-            loadColors(pMaterial, i);
         }
 
         return hr;
@@ -488,6 +486,8 @@ namespace library
     M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M-M*/
     void Model::initMeshSingleBone(_In_ UINT uMeshIndex, _In_ const aiBone* pBone)
     {
+        UINT uBoneId = getBoneId(pBone);
+
         if (uBoneId == m_aBoneInfo.size())
         {
             BoneInfo boneInfo(ConvertMatrix(pBone->mOffsetMatrix));
