@@ -529,7 +529,7 @@ namespace library
     M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M---M-M*/
     void Model::interpolatePosition(_Inout_ XMFLOAT3& outTranslate, _In_ FLOAT animationTimeTicks, _In_ const aiNodeAnim* pNodeAnim)
     {
-        if (pNodeAnim->mNumRotationKeys == 1)
+        if (pNodeAnim->mNumPositionKeys == 1)
         {
             outTranslate = ConvertVector3dToFloat3(pNodeAnim->mPositionKeys[0].mValue);
             return;
@@ -567,9 +567,9 @@ namespace library
     --------------------------------------------------------------------*/
 
     /*M+M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M+++M
-      Method:   Model::interpolateRotation
+      Method:   Model::interpolateScaling
 
-      Summary:  Interpolate two keyframes to find rotation vector
+      Summary:  Interpolate two keyframes to find scaling vector
 
       Args:     XMFLOAT3& outScale
                   Scaling vector
