@@ -174,7 +174,7 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
             {
                 FLOAT frequency = pow(2.0f, static_cast<FLOAT>(i));
                 frequencySum += 1.0f / frequency;
-                height += Scene::GetPerlin2d(frequency * static_cast<FLOAT>(x), frequency * static_cast<FLOAT>(z), 0.1f, 4u) / frequency;
+                height += library::Scene::GetPerlin2d(frequency * static_cast<FLOAT>(x), frequency * static_cast<FLOAT>(z), 0.1f, 4u) / frequency;
             }
             height /= frequencySum;
             height = pow(height * 1.2f, 1.25f);
@@ -188,7 +188,7 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
             {
                 FLOAT frequency = pow(2.0f, static_cast<FLOAT>(i));
                 frequencySum += 1.0f / frequency;
-                moisture += Scene::GetPerlin2d(frequency * static_cast<FLOAT>(x), frequency * static_cast<FLOAT>(z), 0.1f, 4u) / frequency;
+                moisture += library::Scene::GetPerlin2d(frequency * static_cast<FLOAT>(x), frequency * static_cast<FLOAT>(z), 0.1f, 4u) / frequency;
             }
             moisture /= frequencySum;
             moisture = pow(moisture * 1.2f, 1.25f);
