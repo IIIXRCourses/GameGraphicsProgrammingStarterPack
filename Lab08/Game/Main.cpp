@@ -121,7 +121,7 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     }
 
     XMStoreFloat4(&color, Colors::Red);
-    std::shared_ptr<library::RotatingPointLight> rotatingDirectionalLight = std::make_shared<library::RotatingPointLight>(
+    std::shared_ptr<RotatingPointLight> rotatingDirectionalLight = std::make_shared<RotatingPointLight>(
         XMFLOAT4(0.0f, 0.0f, -5.0f, 1.0f),
         color
         );
@@ -193,67 +193,67 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
             moisture /= frequencySum;
             moisture = pow(moisture * 1.2f, 1.25f);
 
-            eBlockType blockType = eBlockType::GRASSLAND;
+            library::eBlockType blockType = library::eBlockType::GRASSLAND;
 
             if (height < 0.1f)
             {
-                blockType = eBlockType::OCEAN;
+                blockType = library::eBlockType::OCEAN;
             }
             else if (height < 0.12f)
             {
-                blockType = eBlockType::SAND;
+                blockType = library::eBlockType::SAND;
             }
             else if (height > 0.8f)
             {
                 if (moisture < 0.1f)
                 {
-                    blockType = eBlockType::SCORCHED;
+                    blockType = library::eBlockType::SCORCHED;
                 }
                 else if (moisture < 0.2f)
                 {
-                    blockType = eBlockType::BARE;
+                    blockType = library::eBlockType::BARE;
                 }
                 else if (moisture < 0.5f)
                 {
-                    blockType = eBlockType::TUNDRA;
+                    blockType = library::eBlockType::TUNDRA;
                 }
                 else
                 {
-                    blockType = eBlockType::SNOW;
+                    blockType = library::eBlockType::SNOW;
                 }
             }
             else if (height > 0.6f)
             {
                 if (moisture < 0.33f)
                 {
-                    blockType = eBlockType::TEMPERATE_DESERT;
+                    blockType = library::eBlockType::TEMPERATE_DESERT;
                 }
                 else if (moisture < 0.66f)
                 {
-                    blockType = eBlockType::SHRUBLAND;
+                    blockType = library::eBlockType::SHRUBLAND;
                 }
                 else
                 {
-                    blockType = eBlockType::TAIGA;
+                    blockType = library::eBlockType::TAIGA;
                 }
             }
             else if (height > 0.3f)
             {
                 if (moisture < 0.16f)
                 {
-                    blockType = eBlockType::TEMPERATE_DESERT;
+                    blockType = library::eBlockType::TEMPERATE_DESERT;
                 }
                 else if (moisture < 0.5f)
                 {
-                    blockType = eBlockType::GRASSLAND;
+                    blockType = library::eBlockType::GRASSLAND;
                 }
                 else if (moisture < 0.83f)
                 {
-                    blockType = eBlockType::TEMPERATE_DECIDUOUS_FOREST;
+                    blockType = library::eBlockType::TEMPERATE_DECIDUOUS_FOREST;
                 }
                 else
                 {
-                    blockType = eBlockType::TEMPERATE_RAIN_FOREST;
+                    blockType = library::eBlockType::TEMPERATE_RAIN_FOREST;
                 }
             }
             else
@@ -261,19 +261,19 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 
                 if (moisture < 0.16f)
                 {
-                    blockType = eBlockType::SUBTROPICAL_DESERT;
+                    blockType = library::eBlockType::SUBTROPICAL_DESERT;
                 }
                 else if (moisture < 0.33f)
                 {
-                    blockType = eBlockType::GRASSLAND;
+                    blockType = library::eBlockType::GRASSLAND;
                 }
                 else if (moisture < 0.66f)
                 {
-                    blockType = eBlockType::TROPICAL_SEASONAL_FOREST;
+                    blockType = library::eBlockType::TROPICAL_SEASONAL_FOREST;
                 }
                 else
                 {
-                    blockType = eBlockType::TROPICAL_RAIN_FOREST;
+                    blockType = library::eBlockType::TROPICAL_RAIN_FOREST;
                 }
             }
 
