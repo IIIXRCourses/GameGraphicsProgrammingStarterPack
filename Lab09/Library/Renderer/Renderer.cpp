@@ -276,7 +276,7 @@ namespace library
             return hr;
         }
 
-        m_camera.Initialize(m_d3dDevice.Get(), m_immediateContext.Get());
+        m_camera.Initialize(m_d3dDevice.Get());
 
         if (!m_scenes.contains(m_pszMainSceneName))
         {
