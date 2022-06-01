@@ -26,6 +26,12 @@ namespace library
 		XMFLOAT4 aBoneWeights;
 	};
 
+	struct NormalData
+	{
+		XMFLOAT3 Tangent;
+		XMFLOAT3 Bitangent;
+	};
+
 	struct CBChangeOnCameraMovement
 	{
 		XMMATRIX View;
